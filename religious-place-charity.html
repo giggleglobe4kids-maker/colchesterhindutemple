@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Build Our Sacred Home — Charity Campaign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Nunito+Sans:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --saffron:    #D4612A;
+    --saffron-lt: #F5885A;
+    --maroon:     #7A1A1A;
+    --maroon-dk:  #561010;
+    --gold:       #C9A227;
+    --gold-lt:    #EDD98A;
+    --cream:      #FBF5EB;
+    --cream-dk:   #F2E8D5;
+    --text-dk:    #1E1208;
+    --text-md:    #4A3520;
+    --text-lt:    #7A6248;
+    --white:      #FFFFFF;
+    --border:     rgba(201,162,39,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dk);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--maroon);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    height: 64px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--gold-lt);
+    font-family: 'Yeseva One', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+  }
+  .nav-logo .om {
+    font-size: 1.5rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.82);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0 1rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-lt); border-bottom-color: var(--gold); }
+  .nav-donate {
+    background: var(--saffron);
+    color: var(--white) !important;
+    padding: 0 1.4rem !important;
+    border-radius: 4px;
+    border: none !important;
+    transition: background 0.2s !important;
+  }
+  .nav-donate:hover { background: var(--saffron-lt) !important; color: var(--white) !important; border-bottom-color: transparent !important; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--maroon-dk);
+  }
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.12;
+    background-image:
+      repeating-conic-gradient(var(--gold) 0deg 10deg, transparent 10deg 30deg),
+      repeating-linear-gradient(45deg, var(--saffron) 0px 1px, transparent 1px 40px);
+    background-size: 60px 60px, 80px 80px;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(118,26,26,0.92) 0%, rgba(30,18,8,0.85) 60%, rgba(212,97,42,0.18) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 5%;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 4rem;
+    align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,162,39,0.18);
+    border: 1px solid rgba(201,162,39,0.4);
+    color: var(--gold-lt);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Yeseva One', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em {
+    color: var(--gold);
+    font-style: normal;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--saffron);
+    color: var(--white);
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--saffron-lt); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--gold-lt);
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1.5px solid rgba(201,162,39,0.5);
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
+
+  /* Hero fundraising card */
+  .hero-card {
+    background: rgba(251,245,235,0.97);
+    border-radius: 12px;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    border-top: 4px solid var(--gold);
+  }
+  .hero-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--maroon);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  .hero-card .raised-label { font-size: 0.8rem; color: var(--text-lt); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.25rem; }
+  .hero-card .raised-amount { font-family: 'Yeseva One', serif; font-size: 2rem; color: var(--maroon); line-height: 1; }
+  .hero-card .goal-label { font-size: 0.82rem; color: var(--text-lt); margin-top: 2px; }
+  .progress-track {
+    background: var(--cream-dk);
+    border-radius: 99px;
+    height: 10px;
+    margin: 1rem 0;
+    overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--maroon), var(--saffron));
+    width: 0%;
+    transition: width 1.6s cubic-bezier(0.4,0,0.2,1);
+  }
+  .progress-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--text-lt);
+    margin-bottom: 1.25rem;
+  }
+  .progress-stats strong { color: var(--maroon); }
+  .divider-line { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
+  .mini-ways {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+  .mini-ways li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text-md);
+    font-weight: 600;
+  }
+  .mini-ways li .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--saffron);
+    flex-shrink: 0;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 5rem 5%; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 0.75rem;
+    padding-left: 2px;
+  }
+  .section-title {
+    font-family: 'Yeseva One', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--maroon-dk);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-title em { color: var(--saffron); font-style: normal; }
+  .section-lead {
+    font-size: 1.05rem;
+    color: var(--text-lt);
+    max-width: 640px;
+    line-height: 1.8;
+  }
+  .gold-divider {
+    width: 56px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin: 1.25rem 0 2rem;
+  }
+
+  /* ── ABOUT / WHY ── */
+  .about-section { background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-visual .arch-frame {
+    background: var(--cream);
+    border: 2px solid var(--border);
+    border-radius: 120px 120px 8px 8px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .arch-interior {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 2rem;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dk) 100%);
+  }
+  .mandala-svg { width: 180px; height: 180px; opacity: 0.75; }
+  .arch-caption {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--maroon);
+    font-style: italic;
+    margin-top: 1.5rem;
+    line-height: 1.5;
+  }
+  .badge-float {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background: var(--maroon);
+    color: var(--gold-lt);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.4;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  }
+  .badge-float .big { display: block; font-family: 'Yeseva One', serif; font-size: 1.8rem; color: var(--gold); }
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.75rem;
+  }
+  .pillar-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .pillar-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .pillar-text h4 {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-dk);
+    margin-bottom: 0.15rem;
+  }
+  .pillar-text p { font-size: 0.88rem; color: var(--text-lt); line-height: 1.6; }
+
+  /* ── WAYS TO HELP ── */
+  .ways-section { background: var(--cream); }
+  .ways-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .way-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .way-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--saffron);
+  }
+  .way-card.gold-accent::before { background: var(--gold); }
+  .way-card.maroon-accent::before { background: var(--maroon); }
+  .way-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+  .way-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .way-card h3 {
+    font-family: 'Yeseva One', serif;
+    font-size: 1.2rem;
+    color: var(--maroon);
+    margin-bottom: 0.5rem;
+  }
+  .way-card p { font-size: 0.88rem; color: var(--text-lt); line-height: 1.7; margin-bottom: 1.25rem; }
+  .way-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1.25rem;
+  }
+  .way-list li {
+    font-size: 0.84rem;
+    color: var(--text-md);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-weight: 600;
+  }
+  .way-list li::before { content: '✦'; font-size: 0.6rem; color: var(--gold); flex-shrink: 0; }
+  .btn-sm {
+    display: inline-block;
+    font-size: 0.83rem;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-sm-primary { background: var(--saffron); color: var(--white); }
+  .btn-sm-primary:hover { background: var(--saffron-lt); }
+  .btn-sm-gold { background: var(--gold); color: var(--maroon-dk); }
+  .btn-sm-gold:hover { background: var(--gold-lt); }
+  .btn-sm-maroon { background: var(--maroon); color: var(--white); }
+  .btn-sm-maroon:hover { background: var(--maroon-dk); }
+
+  /* Donation tiers */
+  .donation-section { background: var(--maroon-dk); position: relative; overflow: hidden; }
+  .donation-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background: repeating-conic-gradient(var(--gold) 0deg 8deg, transparent 8deg 30deg);
+    background-size: 50px 50px;
+  }
+  .donation-inner {
+    position: relative;
+    z-index: 1;
+  }
+  .donation-section .section-title { color: var(--gold-lt); }
+  .donation-section .section-lead { color: rgba(255,255,255,0.7); }
+  .donation-section .gold-divider { background: var(--saffron); }
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+  .tier-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(201,162,39,0.25);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .tier-card:hover, .tier-card.featured {
+    background: rgba(212,97,42,0.2);
+    border-color: var(--saffron);
+    transform: translateY(-4px);
+  }
+  .tier-card .tier-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .tier-card .tier-amount {
+    font-family: 'Yeseva One', serif;
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+  .tier-card .tier-desc { font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+  .custom-amount-wrap {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .amount-input {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(201,162,39,0.35);
+    color: var(--white);
+    padding: 12px 18px;
+    border-radius: 4px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1rem;
+    width: 180px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .amount-input::placeholder { color: rgba(255,255,255,0.4); }
+  .amount-input:focus { border-color: var(--gold); }
+
+  /* ── COMMUNITY ── */
+  .community-section { background: var(--white); }
+  .community-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2.5rem;
+  }
+  .event-card {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    transition: box-shadow 0.2s;
+  }
+  .event-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .event-date {
+    background: var(--maroon);
+    color: var(--white);
+    border-radius: 6px;
+    padding: 0.6rem 0.8rem;
+    text-align: center;
+    min-width: 52px;
+    flex-shrink: 0;
+  }
+  .event-date .d { font-family: 'Yeseva One', serif; font-size: 1.5rem; line-height: 1; }
+  .event-date .m { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold-lt); margin-top: 2px; }
+  .event-info h4 { font-weight: 700; font-size: 0.95rem; color: var(--text-dk); margin-bottom: 0.25rem; }
+  .event-info p { font-size: 0.82rem; color: var(--text-lt); line-height: 1.5; }
+  .event-info .loc { font-size: 0.78rem; color: var(--saffron); font-weight: 600; margin-top: 0.4rem; }
+
+  .volunteer-panel {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+  }
+  .volunteer-panel h3 {
+    font-family: 'Yeseva One', serif;
+    font-size: 1.4rem;
+    color: var(--maroon);
+    margin-bottom: 0.75rem;
+  }
+  .volunteer-panel p { font-size: 0.9rem; color: var(--text-lt); margin-bottom: 1.5rem; }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .skill-tag {
+    background: var(--cream-dk);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-md);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .skill-tag:hover, .skill-tag.active { background: var(--saffron); border-color: var(--saffron); color: var(--white); }
+
+  /* ── CONTACT FORM ── */
+  .contact-section { background: var(--cream-dk); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .contact-info h3 {
+    font-family: 'Yeseva One', serif;
+    font-size: 1.6rem;
+    color: var(--maroon);
+    margin-bottom: 1rem;
+  }
+  .contact-info p { font-size: 0.92rem; color: var(--text-lt); margin-bottom: 1.5rem; line-height: 1.8; }
+  .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-md);
+  }
+  .contact-item .ci-icon {
+    width: 38px; height: 38px;
+    background: var(--maroon);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .form-box {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2.25rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+  .form-box h3 {
+    font-family: 'Yeseva One', serif;
+    font-size: 1.3rem;
+    color: var(--maroon);
+    margin-bottom: 1.5rem;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+  .form-group label { font-size: 0.8rem; font-weight: 700; color: var(--text-md); letter-spacing: 0.04em; text-transform: uppercase; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-dk);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--saffron); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-submit { width: 100%; padding: 14px; font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; margin-top: 0.5rem; }
+
+  /* ── STATS BANNER ── */
+  .stats-banner {
+    background: var(--saffron);
+    padding: 3rem 5%;
+  }
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+  .stat-item { padding: 0.5rem; }
+  .stat-item .stat-num {
+    font-family: 'Yeseva One', serif;
+    font-size: 2.4rem;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+  .stat-item .stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.85); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text-dk);
+    color: rgba(255,255,255,0.7);
+    padding: 3rem 5% 2rem;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand .brand-name {
+    font-family: 'Yeseva One', serif;
+    font-size: 1.2rem;
+    color: var(--gold-lt);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  .footer-brand .charity-num { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 240px; }
+  .footer-col h4 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col ul li a { text-decoration: none; font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--gold-lt); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .social-links { display: flex; gap: 0.75rem; }
+  .social-link {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.6);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .social-link:hover { border-color: var(--gold); color: var(--gold-lt); }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--maroon);
+    color: var(--white);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    max-width: 320px;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast .toast-icon { font-size: 1.2rem; }
+
+  /* Mobile basics */
+  @media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { display: none; }
+    .ways-grid { grid-template-columns: 1fr; }
+    .tiers-grid { grid-template-columns: 1fr 1fr; }
+    .community-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .stats-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="om">ॐ</span>
+    Sacred Spaces Trust
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#help">Ways to Help</a></li>
+    <li><a href="#donate">Donate</a></li>
+    <li><a href="#events">Community</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#donate" class="nav-donate">Donate Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">🏛 Community Fundraising Campaign</div>
+      <h1>Building a <em>Sacred Home</em> for Our Community</h1>
+      <p class="hero-sub">
+        Together, we are creating a permanent place of worship, reflection, and cultural celebration for generations to come — right here in our city. Every contribution, big or small, brings us closer to this shared dream.
+      </p>
+      <div class="hero-buttons">
+        <a href="#donate" class="btn-primary">Donate Today</a>
+        <a href="#about" class="btn-outline">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Fundraising card -->
+    <div class="hero-card">
+      <h3>Campaign Progress</h3>
+      <p class="raised-label">Total Raised</p>
+      <p class="raised-amount" id="raisedAmt">£0</p>
+      <p class="goal-label">of <strong>£500,000</strong> goal</p>
+      <div class="progress-track">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="progress-stats">
+        <span><strong id="pct">0%</strong> funded</span>
+        <span><strong>847</strong> donors</span>
+        <span><strong>61</strong> days left</span>
+      </div>
+      <hr class="divider-line" />
+      <ul class="mini-ways">
+        <li><span class="dot"></span>One-off donations welcome</li>
+        <li><span class="dot"></span>Monthly giving options</li>
+        <li><span class="dot"></span>Gift Aid boosts your gift by 25%</li>
+        <li><span class="dot"></span>Non-monetary support too</li>
+      </ul>
+      <a href="#donate" class="btn-primary" style="width:100%;text-align:center;display:block;">Make a Donation</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BANNER -->
+<div class="stats-banner">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num">£325K</div>
+      <div class="stat-label">Raised so far</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-num">847</div>
+      <div class="stat-label">Donors & supporters</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-num">3,000+</div>
+      <div class="stat-label">Families to benefit</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-num">1996</div>
+      <div class="stat-label">Serving the community since</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <!-- Visual -->
+      <div class="about-visual reveal">
+        <div class="arch-frame">
+          <div class="arch-interior">
+            <svg class="mandala-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="90" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.4"/>
+              <circle cx="100" cy="100" r="70" fill="none" stroke="#D4612A" stroke-width="1" opacity="0.5"/>
+              <circle cx="100" cy="100" r="50" fill="none" stroke="#7A1A1A" stroke-width="1.5" opacity="0.6"/>
+              <circle cx="100" cy="100" r="30" fill="none" stroke="#C9A227" stroke-width="2" opacity="0.7"/>
+              <circle cx="100" cy="100" r="12" fill="#C9A227" opacity="0.3"/>
+              <g opacity="0.55" stroke="#C9A227" stroke-width="0.8" fill="none">
+                <line x1="100" y1="10" x2="100" y2="190"/>
+                <line x1="10" y1="100" x2="190" y2="100"/>
+                <line x1="29" y1="29" x2="171" y2="171"/>
+                <line x1="171" y1="29" x2="29" y2="171"/>
+                <line x1="100" y1="10" x2="63" y2="75"/><line x1="100" y1="10" x2="137" y2="75"/>
+                <line x1="190" y1="100" x2="125" y2="63"/><line x1="190" y1="100" x2="125" y2="137"/>
+                <line x1="100" y1="190" x2="137" y2="125"/><line x1="100" y1="190" x2="63" y2="125"/>
+                <line x1="10" y1="100" x2="75" y2="63"/><line x1="10" y1="100" x2="75" y2="137"/>
+              </g>
+              <polygon points="100,30 115,75 165,75 125,100 140,145 100,120 60,145 75,100 35,75 85,75" fill="#C9A227" opacity="0.15"/>
+              <circle cx="100" cy="100" r="6" fill="#D4612A" opacity="0.9"/>
+              <text x="100" y="165" text-anchor="middle" font-family="serif" font-size="28" fill="#7A1A1A" opacity="0.6">ॐ</text>
+            </svg>
+            <p class="arch-caption">"A home for faith,<br/>a heart for community"</p>
+          </div>
+        </div>
+        <div class="badge-float">
+          <span class="big">28</span>
+          years of community service
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="reveal reveal-delay-1">
+        <span class="section-tag">Our Mission</span>
+        <h2 class="section-title">Why We Are <em>Building This</em></h2>
+        <div class="gold-divider"></div>
+        <p class="section-lead">
+          For decades, our community has gathered in borrowed halls and temporary spaces to celebrate festivals, observe prayers, and pass our culture to the next generation. The time has come to build a dedicated, permanent sacred space that our families can truly call home.
+        </p>
+        <div class="pillars">
+          <div class="pillar-item">
+            <div class="pillar-icon">🛕</div>
+            <div class="pillar-text">
+              <h4>A Place of Worship</h4>
+              <p>Daily prayers, festivals, religious ceremonies, and spiritual gatherings conducted with dignity in a purpose-built sanctuary.</p>
+            </div>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-icon">🎓</div>
+            <div class="pillar-text">
+              <h4>Cultural Education Centre</h4>
+              <p>Teaching language, arts, music, and traditions to the younger generation — keeping heritage alive for the future.</p>
+            </div>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-icon">🤝</div>
+            <div class="pillar-text">
+              <h4>Community Hub</h4>
+              <p>Open to all — a welcoming space for social events, welfare support, interfaith dialogue, and community wellbeing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAYS TO HELP -->
+<section class="ways-section" id="help">
+  <div class="section-inner">
+    <span class="section-tag">Get Involved</span>
+    <h2 class="section-title">How You Can <em>Help Us</em></h2>
+    <div class="gold-divider"></div>
+    <p class="section-lead">
+      There is a role for everyone in this journey. Whether through financial support or donating your time, skills, or resources, every contribution matters enormously.
+    </p>
+    <div class="ways-grid">
+
+      <!-- Card 1: Donate money -->
+      <div class="way-card reveal">
+        <span class="way-icon">💷</span>
+        <h3>Monetary Donations</h3>
+        <p>Your financial contribution goes directly towards land acquisition, construction, and building the sacred space we all dream of.</p>
+        <ul class="way-list">
+          <li>One-off gift of any amount</li>
+          <li>Monthly recurring giving</li>
+          <li>Gift Aid — worth 25% extra at no cost to you</li>
+          <li>Named brick / memorial donation</li>
+          <li>Corporate & business sponsorship</li>
+        </ul>
+        <a href="#donate" class="btn-sm btn-sm-primary">Donate Now</a>
+      </div>
+
+      <!-- Card 2: In-kind -->
+      <div class="way-card gold-accent reveal reveal-delay-1">
+        <span class="way-icon">🏗️</span>
+        <h3>In-Kind Support</h3>
+        <p>Donate goods, materials, or professional services that directly support the construction and equipping of our new centre.</p>
+        <ul class="way-list">
+          <li>Building materials & supplies</li>
+          <li>Construction equipment loans</li>
+          <li>Furniture & fittings</li>
+          <li>IT equipment & AV systems</li>
+          <li>Religious artefacts & décor</li>
+        </ul>
+        <a href="#contact" class="btn-sm btn-sm-gold">Offer Support</a>
+      </div>
+
+      <!-- Card 3: Volunteer -->
+      <div class="way-card maroon-accent reveal reveal-delay-2">
+        <span class="way-icon">🙌</span>
+        <h3>Volunteer Your Skills</h3>
+        <p>We need talented hands and minds from the community. Lend your professional skills and be part of building history.</p>
+        <ul class="way-list">
+          <li>Architecture & design</li>
+          <li>Legal & planning advice</li>
+          <li>Project management</li>
+          <li>Fundraising & events support</li>
+          <li>Social media & communications</li>
+        </ul>
+        <a href="#contact" class="btn-sm btn-sm-maroon">Register Interest</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DONATION TIERS -->
+<section class="donation-section" id="donate">
+  <div class="section-inner donation-inner">
+    <span class="section-tag" style="color:var(--gold-lt)">Choose Your Gift</span>
+    <h2 class="section-title" style="color:var(--gold-lt)">Select a Donation <em style="color:var(--saffron-lt)">Amount</em></h2>
+    <div class="gold-divider" style="background:var(--saffron)"></div>
+    <p class="section-lead" style="color:rgba(255,255,255,0.7)">
+      Every pound brings us closer to opening the doors of our sacred space. All donations to our registered charity are eligible for Gift Aid.
+    </p>
+
+    <div class="tiers-grid">
+      <div class="tier-card reveal" onclick="selectTier(this,'25')">
+        <div class="tier-label">Seva Supporter</div>
+        <div class="tier-amount">£25</div>
+        <div class="tier-desc">Contributes to essential materials and community outreach</div>
+      </div>
+      <div class="tier-card reveal reveal-delay-1 featured" onclick="selectTier(this,'100')">
+        <div class="tier-label">🌟 Most Popular</div>
+        <div class="tier-amount">£100</div>
+        <div class="tier-desc">Covers a named brick in the foundation of our sacred home</div>
+      </div>
+      <div class="tier-card reveal reveal-delay-2" onclick="selectTier(this,'500')">
+        <div class="tier-label">Heritage Patron</div>
+        <div class="tier-amount">£500</div>
+        <div class="tier-desc">Sponsors a room fitting or piece of sacred décor with recognition</div>
+      </div>
+      <div class="tier-card reveal reveal-delay-3" onclick="selectTier(this,'1000')">
+        <div class="tier-label">Founding Donor</div>
+        <div class="tier-amount">£1,000+</div>
+        <div class="tier-desc">Named wall plaque &amp; lifetime recognition in the centre</div>
+      </div>
+    </div>
+
+    <div class="custom-amount-wrap">
+      <span style="color:rgba(255,255,255,0.7);font-size:0.9rem;">Or enter your own amount:</span>
+      <input type="number" class="amount-input" id="customAmt" placeholder="£ Your amount" min="1" />
+      <button class="btn-primary" onclick="handleDonate()">Donate Securely →</button>
+    </div>
+    <p style="text-align:center;color:rgba(255,255,255,0.4);font-size:0.78rem;margin-top:1.5rem;">
+      Registered Charity No. XXXXXXX &nbsp;·&nbsp; All transactions are encrypted and secure &nbsp;·&nbsp; Gift Aid declarations available
+    </p>
+  </div>
+</section>
+
+<!-- COMMUNITY EVENTS & VOLUNTEER -->
+<section class="community-section" id="events">
+  <div class="section-inner">
+    <span class="section-tag">Community & Events</span>
+    <h2 class="section-title">Join Us, <em>Get Involved</em></h2>
+    <div class="gold-divider"></div>
+    <p class="section-lead">
+      Fundraising events bring us together and build momentum. Come along, share with your networks, and help spread the word.
+    </p>
+
+    <div class="community-grid">
+      <div>
+        <h3 style="font-family:'Yeseva One',serif;font-size:1.15rem;color:var(--maroon);margin-bottom:1.25rem;">Upcoming Events</h3>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+
+          <div class="event-card reveal">
+            <div class="event-date"><div class="d">14</div><div class="m">Jun</div></div>
+            <div class="event-info">
+              <h4>Grand Community Fundraising Dinner</h4>
+              <p>An evening of cultural performances, auctions, and celebration to raise funds for the sacred project.</p>
+              <p class="loc">📍 City Conference Centre &nbsp;·&nbsp; 6:30 PM onwards</p>
+            </div>
+          </div>
+
+          <div class="event-card reveal reveal-delay-1">
+            <div class="event-date"><div class="d">22</div><div class="m">Jun</div></div>
+            <div class="event-info">
+              <h4>Family Fun Day & Charity Mela</h4>
+              <p>Food stalls, children's activities, live music and cultural displays — all raising vital funds.</p>
+              <p class="loc">📍 Victoria Park &nbsp;·&nbsp; 11 AM – 6 PM</p>
+            </div>
+          </div>
+
+          <div class="event-card reveal reveal-delay-2">
+            <div class="event-date"><div class="d">5</div><div class="m">Jul</div></div>
+            <div class="event-info">
+              <h4>Charity Auction — Art & Artefacts</h4>
+              <p>Bid on donated artworks, handcrafted items, and experiences. All proceeds go to the building fund.</p>
+              <p class="loc">📍 Community Hall, City Centre &nbsp;·&nbsp; 3 PM</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="volunteer-panel">
+          <h3>Volunteer With Us</h3>
+          <p>We welcome all who wish to contribute their time and skills. Select the areas where you can help:</p>
+          <div class="skill-tags" id="skillTags">
+            <span class="skill-tag" onclick="toggleTag(this)">Event Planning</span>
+            <span class="skill-tag" onclick="toggleTag(this)">Architecture</span>
+            <span class="skill-tag" onclick="toggleTag(this)">Legal Advice</span>
+            <span class="skill-tag" onclick="toggleTag(this)">Social Media</span>
+            <span class="skill-tag" onclick="toggleTag(this)">Fundraising</span>
+            <span class="skill-tag" onclick="toggleTag(this)">Translation</span>
+            <span class="skill-tag" onclick="toggleTag(this)">Construction</span>
+            <span class="skill-tag" onclick="toggleTag(this)">Photography</span>
+            <span class="skill-tag" onclick="toggleTag(this)">Finance</span>
+            <span class="skill-tag" onclick="toggleTag(this)">Teaching</span>
+            <span class="skill-tag" onclick="toggleTag(this)">Cooking</span>
+            <span class="skill-tag" onclick="toggleTag(this)">IT & Tech</span>
+          </div>
+          <a href="#contact" class="btn-sm btn-sm-primary" style="display:inline-block;">Register as a Volunteer</a>
+        </div>
+
+        <div style="margin-top:1.5rem;padding:1.5rem;background:var(--cream-dk);border-radius:10px;border:1px solid var(--border);">
+          <p style="font-size:0.85rem;color:var(--text-lt);font-style:italic;line-height:1.7;">
+            "This sacred space will be a gift to our children and grandchildren — a place where they can know who they are and where they come from. Every contribution, however small, is a brick in that foundation."
+          </p>
+          <p style="font-size:0.8rem;font-weight:700;color:var(--maroon);margin-top:0.75rem;">— Trustee, Sacred Spaces Trust</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">We Would Love<br/><em>to Hear from You</em></h2>
+        <div class="gold-divider"></div>
+        <p class="section-lead" style="margin-bottom:2rem;">
+          Whether you have questions, want to explore sponsorship opportunities, discuss in-kind support, or simply want to know more — our team is here to talk.
+        </p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="ci-icon">📧</div>
+            <div>
+              <strong>Email us</strong><br/>
+              <span style="color:var(--text-lt);font-size:0.85rem;">info@sacredspacestrust.org.uk</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📞</div>
+            <div>
+              <strong>Call the team</strong><br/>
+              <span style="color:var(--text-lt);font-size:0.85rem;">+44 (0) 7XXX XXX XXX</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <strong>Correspondence address</strong><br/>
+              <span style="color:var(--text-lt);font-size:0.85rem;">PO Box XXX, City, UK</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">🕐</div>
+            <div>
+              <strong>Office hours</strong><br/>
+              <span style="color:var(--text-lt);font-size:0.85rem;">Monday – Saturday, 10am – 6pm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box reveal reveal-delay-1">
+        <h3>Send a Message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Priya" />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Sharma" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Phone (optional)</label>
+          <input type="tel" placeholder="+44..." />
+        </div>
+        <div class="form-group">
+          <label>How can you help?</label>
+          <select>
+            <option value="">— Please select —</option>
+            <option>Financial donation</option>
+            <option>In-kind / material support</option>
+            <option>Volunteer my skills</option>
+            <option>Corporate sponsorship</option>
+            <option>Event / fundraising help</option>
+            <option>General enquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Message</label>
+          <textarea placeholder="Tell us how you'd like to be involved, or any questions you have…"></textarea>
+        </div>
+        <button class="btn-primary btn-sm form-submit" onclick="handleForm()">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-name">ॐ Sacred Spaces Trust</span>
+        <span class="charity-num">Registered Charity No. XXXXXXX (England & Wales)</span>
+        <p>Building a permanent place of worship and cultural celebration for our community — with your help and God's grace.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About the Project</a></li>
+          <li><a href="#help">Ways to Help</a></li>
+          <li><a href="#donate">Donate Now</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Gift Aid Info</a></li>
+          <li><a href="#">Corporate Giving</a></li>
+          <li><a href="#">Volunteer FAQ</a></li>
+          <li><a href="#">In-Kind Donations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Annual Reports</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Sacred Spaces Trust. All rights reserved. Registered in England & Wales.</span>
+      <div class="social-links">
+        <a href="#" class="social-link" title="Facebook">f</a>
+        <a href="#" class="social-link" title="Instagram">ig</a>
+        <a href="#" class="social-link" title="WhatsApp">w</a>
+        <a href="#" class="social-link" title="YouTube">yt</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon">🙏</span>
+  <span id="toastMsg">Thank you! We'll be in touch soon.</span>
+</div>
+
+<script>
+  // Animate progress bar on load
+  window.addEventListener('load', () => {
+    const target = 325000;
+    const goal = 500000;
+    const pct = Math.round((target / goal) * 100);
+    setTimeout(() => {
+      document.getElementById('progressBar').style.width = pct + '%';
+      animateNum(document.getElementById('raisedAmt'), 0, target, 1400, v => '£' + v.toLocaleString('en-GB'));
+      animateNum(document.getElementById('pct'), 0, pct, 1400, v => v + '%');
+    }, 400);
+  });
+
+  function animateNum(el, from, to, duration, fmt) {
+    const start = performance.now();
+    function step(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      el.textContent = fmt(Math.round(from + (to - from) * ease));
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Tag toggle
+  function toggleTag(el) { el.classList.toggle('active'); }
+
+  // Tier selection
+  let selectedTier = null;
+  function selectTier(el, amount) {
+    document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('featured'));
+    el.classList.add('featured');
+    selectedTier = amount;
+    document.getElementById('customAmt').value = amount;
+  }
+
+  // Toast helper
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  function handleDonate() {
+    const amt = document.getElementById('customAmt').value;
+    if (!amt || amt < 1) { showToast('Please enter or select a donation amount.'); return; }
+    showToast('🙏 Thank you for your generous gift of £' + Number(amt).toLocaleString('en-GB') + '! Redirecting to secure payment…');
+  }
+
+  function handleForm() {
+    showToast('✉️ Message sent! Our team will be in touch shortly. Thank you.');
+  }
+</script>
+</body>
+</html>
